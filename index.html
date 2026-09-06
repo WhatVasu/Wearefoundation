@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We Are Foundation — Support, Safety, and a Way Back Home</title>
+<meta name="description" content="We Are Foundation supports people facing mental health challenges and helps missing and vulnerable people reconnect with their families, with dignity and care.">
+<meta property="og:title" content="We Are Foundation">
+<meta property="og:description" content="You are not alone. You are not forgotten. We are here to help.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#182A3D;
+    --navy-deep:#0F1D2B;
+    --sage:#4E7B6B;
+    --sage-deep:#3A5F52;
+    --cream:#F6F1E7;
+    --paper:#FBF8F2;
+    --ochre:#C08A3E;
+    --ochre-deep:#A5722E;
+    --ink:#1E2530;
+    --ink-soft:#5B6472;
+    --line:#E3DBC9;
+    --white:#FFFFFF;
+    --radius-s:4px;
+    --radius-m:10px;
+    --max:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; overflow-x:hidden;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    max-width:100vw;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    color:var(--navy-deep);
+    line-height:1.15;
+    margin:0 0 .5em;
+  }
+  p{margin:0 0 1em; color:var(--ink-soft); max-width:62ch;}
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  section{padding:96px 0;}
+  .eyebrow{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    letter-spacing:.02em;
+    color:var(--sage-deep);
+    font-weight:600;
+    margin-bottom:14px;
+    display:block;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 26px;
+    border-radius:var(--radius-s);
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, background .2s ease;
+    font-family:'Inter',sans-serif;
+  }
+  .btn:focus-visible{outline:2px solid var(--ochre); outline-offset:3px;}
+  .btn-primary{background:var(--ochre); color:var(--white);}
+  .btn-primary:hover{background:var(--ochre-deep);}
+  .btn-outline{border-color:rgba(255,255,255,.5); color:var(--white); background:transparent;}
+  .btn-outline:hover{background:rgba(255,255,255,.12);}
+  .btn-navy{background:var(--navy-deep); color:var(--white);}
+  .btn-navy:hover{background:#0A1420;}
+  .btn-ghost{border-color:var(--line); color:var(--navy-deep); background:transparent;}
+  .btn-ghost:hover{border-color:var(--navy-deep);}
+  .btn-sm{padding:9px 18px; font-size:14px;}
+
+  /* ===== NAV ===== */
+  header.site-nav{
+    position:sticky; top:0; z-index:500;
+    background:rgba(251,248,242,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--max); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px;
+  }
+  .logo-lockup{
+    display:flex; align-items:center; gap:10px;
+    text-decoration:none; min-width:0;
+  }
+  .logo-mark{
+    width:42px; height:42px; flex:none;
+    border-radius:100px; object-fit:cover;
+  }
+  .logo{
+    font-family:'Fraunces',serif; font-weight:600; font-size:19px;
+    color:var(--navy-deep); text-decoration:none; letter-spacing:-.01em;
+    white-space:nowrap;
+  }
+  .logo span{color:var(--sage-deep);}
+  nav.main-links{display:flex; gap:30px; list-style:none; margin:0; padding:0;}
+  nav.main-links a{
+    text-decoration:none; color:var(--ink); font-size:14.5px; font-weight:500;
+    padding:6px 0; border-bottom:2px solid transparent;
+  }
+  nav.main-links a:hover{border-bottom-color:var(--ochre);}
+  .nav-cta{display:flex; gap:10px; align-items:center;}
+  .hamburger{display:none; background:none; border:none; cursor:pointer; padding:8px;}
+  .hamburger span{display:block; width:24px; height:2px; background:var(--navy-deep); margin:5px 0;}
+  .mobile-panel{display:none;}
+
+  @media(max-width:920px){
+    nav.main-links{display:none;}
+    .hamburger{display:block;}
+    .nav-cta .btn{display:none;}
+    .mobile-panel.open{
+      display:flex; flex-direction:column; gap:2px;
+      background:var(--paper); border-top:1px solid var(--line);
+      padding:10px 28px 20px;
+    }
+    .mobile-panel a{padding:12px 0; text-decoration:none; color:var(--ink); border-bottom:1px solid var(--line); font-weight:500;}
+    .mobile-panel .btn{margin-top:14px; justify-content:center;}
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    background:linear-gradient(180deg,var(--navy-deep) 0%, var(--navy) 100%);
+    color:var(--white);
+    padding:110px 0 100px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr .9fr; gap:64px; align-items:center;
+  }
+  .hero h1{
+    color:var(--white);
+    font-size:clamp(2.3rem,4.4vw,3.6rem);
+    max-width:14ch;
+    margin-bottom:.4em;
+  }
+  .hero p.lead{
+    color:#CBD6DE; font-size:18px; max-width:46ch; margin-bottom:2em;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-photo{
+    overflow:hidden;
+    aspect-ratio: 4/5;
+    border-radius:var(--radius-m);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-photo img{width:100%; height:100%; object-fit:cover;}
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo{order:-1; aspect-ratio:16/10;}
+  }
+
+  /* ===== QUICK HELP ===== */
+  .quick-help{
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+  }
+  .quick-help .section-head{max-width:640px; margin-bottom:48px;}
+  .help-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .help-card{
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m);
+    padding:32px 28px;
+  }
+  .help-card .num{
+    font-family:'Fraunces',serif; font-size:14px; color:var(--sage-deep); font-weight:600; margin-bottom:16px; display:block;
+  }
+  .help-card h3{font-size:20px; margin-bottom:10px;}
+  .help-card p{font-size:14.5px; margin-bottom:20px;}
+  @media(max-width:860px){.help-grid{grid-template-columns:1fr;}}
+
+  /* ===== ABOUT ===== */
+  .about-top{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;}
+  .about-top .copy p{margin-bottom:1.3em;}
+  .mv-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:20px;}
+  .mv-card{border-left:3px solid var(--sage); padding:6px 0 6px 20px;}
+  .mv-card h4{font-size:15px; letter-spacing:.02em; color:var(--sage-deep); margin-bottom:8px; font-family:'Inter'; font-weight:600;}
+  .mv-card p{font-size:15px; color:var(--ink); margin:0;}
+  @media(max-width:860px){.about-top,.mv-grid{grid-template-columns:1fr;}}
+
+  .values-strip{
+    margin-top:80px; padding-top:60px; border-top:1px solid var(--line);
+  }
+
+  .team-card img{width:250px; aspect-ratio:1/1; object-fit:cover; border-radius:var(--radius-m); margin-bottom:14px;}
+  .team-card h4{font-size:16px; margin-bottom:2px;}
+  .team-card .role{font-size:13px; color:var(--sage-deep); font-weight:600; margin-bottom:8px;}
+  .team-card p{font-size:13.5px;}
+
+  /* ===== STORIES ===== */
+  .stories-grid{
+    margin-top:60px;
+    display:grid; grid-template-columns:repeat(2,1fr); gap:26px;
+  }
+  .story-card{
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m); overflow:hidden;
+  }
+  .story-card .story-media{
+    width:100%; aspect-ratio:12/10; background:var(--cream);
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .story-card .story-media img{width:100%; height:100%; object-fit:cover;}
+  .story-body{padding:24px;}
+  .story-tag{font-size:12px; font-weight:700; letter-spacing:.02em; color:var(--sage-deep); margin-bottom:10px; display:block;}
+  .story-body h4{font-size:17px; margin-bottom:8px;}
+  .story-body p{font-size:14px;}
+  @media(max-width:900px){.stories-grid{grid-template-columns:1fr;}}
+
+  /* ===== GET INVOLVED (Donate / Partner) ===== */
+  .involve-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:56px;}
+  .form-card{
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m); padding:32px;
+  }
+  .field{margin-bottom:18px;}
+  .field label{display:block; font-size:13.5px; font-weight:600; margin-bottom:6px; color:var(--navy-deep);}
+  .field input, .field select, .field textarea{
+    width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:var(--radius-s);
+    font-family:'Inter'; font-size:14.5px; background:var(--paper); color:var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{outline:2px solid var(--sage); outline-offset:1px;}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:640px){.field-row{grid-template-columns:1fr;} .involve-grid{grid-template-columns:1fr;}}
+
+  .bank-details{border:1px solid var(--line); border-radius:var(--radius-m); overflow:hidden; background:var(--paper);}
+  .bank-row{display:flex; justify-content:space-between; align-items:center; gap:16px; padding:16px 20px; border-bottom:1px solid var(--line);}
+  .bank-row:last-child{border-bottom:none;}
+  .bank-row .label{font-size:12.5px; font-weight:700; letter-spacing:.02em; color:var(--sage-deep); text-transform:uppercase;}
+  .bank-row .value{font-family:'Fraunces',serif; font-size:16px; color:var(--navy-deep); font-weight:500; text-align:right;}
+  .copy-btn{border:1px solid var(--line); background:var(--white); border-radius:var(--radius-s); padding:6px 12px; font-size:12.5px; font-weight:600; cursor:pointer; color:var(--navy-deep); margin-left:12px; flex:none;}
+  .copy-btn:hover{border-color:var(--sage);}
+  .bank-value-wrap{display:flex; align-items:center; justify-content:flex-end;}
+  .upi-pay-row{flex-direction:column; align-items:flex-start; gap:14px;}
+  .upi-pay-btn{
+    display:inline-flex; align-items:center; gap:8px; width:100%; justify-content:center;
+  }
+  .upi-apps{display:flex; gap:10px; flex-wrap:wrap;}
+  .upi-app-chip{
+    display:inline-flex; align-items:center; gap:6px; padding:8px 14px;
+    border:1px solid var(--line); border-radius:20px; background:var(--white);
+    font-size:12.5px; font-weight:600; color:var(--navy-deep);
+  }
+  .upi-app-chip .dot{width:8px; height:8px; border-radius:50%; flex:none;}
+  .fund-use{margin-top:26px; padding-top:22px; border-top:1px solid var(--line);}
+  .fund-use ul{padding-left:18px; font-size:14px; color:var(--ink-soft);}
+
+  /* ===== FAQ ===== */
+  .faq-list{max-width:800px; margin-top:44px;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; padding:22px 0; cursor:pointer;
+    display:flex; justify-content:space-between; align-items:center; gap:20px;
+    font-family:'Fraunces',serif; font-size:17px; color:var(--navy-deep);
+  }
+  .faq-q .plus{font-size:22px; color:var(--sage-deep); font-family:'Inter'; transition:transform .2s ease;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+  .faq-a p{padding-bottom:20px; font-size:14.5px;}
+
+  /* ===== CONTACT ===== */
+  .contact-grid{display:grid; grid-template-columns:.8fr 1.2fr; gap:56px;}
+  .contact-info dl{margin:30px 0;}
+  .contact-info dt{font-weight:700; font-size:13px; color:var(--sage-deep); margin-top:20px;}
+  .contact-info dd{margin:4px 0 0; color:var(--ink-soft); font-size:14.5px;}
+  .map-placeholder{
+    margin-top:26px; background:var(--cream); border:1px dashed var(--line); border-radius:var(--radius-m);
+    height:180px; display:flex; align-items:center; justify-content:center; color:var(--ink-soft); font-size:13.5px;
+  }
+  .urgent-box{
+    margin-top:26px; padding:18px 20px; background:#FBEFE2; border-radius:var(--radius-s); border:1px solid #E9CFA3; font-size:13.5px; color:#6B4A20;
+  }
+  .contact-links{display:flex; flex-direction:column; gap:14px; align-self:start;}
+  .contact-link-item{
+    display:flex; align-items:center; gap:16px;
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m);
+    padding:20px 22px; text-decoration:none;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .contact-link-item:hover{border-color:var(--sage); transform:translateY(-1px);}
+  .contact-icon{
+    flex:none; width:44px; height:44px; border-radius:50%;
+    background:var(--cream); color:var(--navy-deep);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .contact-icon svg{width:22px; height:22px;}
+  .contact-text{display:flex; flex-direction:column; gap:2px;}
+  .contact-text strong{font-size:15px; color:var(--navy-deep); font-family:'Inter'; font-weight:600;}
+  .contact-text span{font-size:13.5px; color:var(--ink-soft);}
+  @media(max-width:860px){.contact-grid{grid-template-columns:1fr;}}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--navy-deep); color:#B7C2CC; padding-top:80px;}
+  .footer-grid{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr 1fr; gap:40px; padding-bottom:56px; border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .footer-grid h5{color:var(--white); font-family:'Inter'; font-size:13.5px; font-weight:700; margin-bottom:18px;}
+  .footer-grid ul{list-style:none; margin:0; padding:0;}
+  .footer-grid li{margin-bottom:11px; font-size:14px;}
+  .footer-grid a{text-decoration:none; color:#B7C2CC;}
+  .footer-grid a:hover{color:var(--white);}
+  .footer-logo{font-family:'Fraunces',serif; color:var(--white); font-size:20px; margin-bottom:14px;}
+  .footer-grid p{font-size:13.5px; color:#8B98A4; max-width:32ch;}
+  .social-row{display:flex; gap:12px; margin-top:16px;}
+  .social-row a{width:34px; height:34px; border:1px solid rgba(255,255,255,.25); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px;}
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center; padding:26px 0; font-size:12.5px; color:#7C8996; flex-wrap:wrap; gap:12px;
+  }
+  .footer-bottom .legal-links{display:flex; gap:20px;}
+  .footer-bottom .legal-links a{text-decoration:none; color:#7C8996;}
+  .ngo-info{font-size:12px; color:#67727D; padding:18px 0 40px; border-top:1px solid rgba(255,255,255,.08);}
+
+  @media(max-width:900px){
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+
+  .section-head{max-width:680px; margin-bottom:20px;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);}
+
+  /* ===== MOBILE REFINEMENTS ===== */
+  @media(max-width:600px){
+    section{padding:64px 0;}
+    .hero{padding:56px 0 48px;}
+    .wrap{padding:0 20px;}
+
+    /* Logo row spacing on small screens */
+    .nav-inner{padding:12px 16px; gap:10px;}
+    .logo-mark{width:34px; height:34px;}
+    .logo{font-size:16px;}
+
+    /* Hero photo: show the full image, letterboxed against the hero background rather than cropped */
+    .hero-photo{
+      aspect-ratio:auto;
+      background:transparent;
+      box-shadow:0 16px 32px -14px rgba(0,0,0,.45);
+    }
+    .hero-photo img{
+      width:100%;
+      height:auto;
+      max-height:70vh;
+      object-fit:contain;
+    }
+
+    /* Story photos: full image visible, no cropping, letterboxed on the card's cream tone */
+    .story-card .story-media{
+      aspect-ratio:auto;
+      height:auto;
+      padding:10px 10px 0;
+      background:var(--white);
+    }
+    .story-card .story-media img{
+      height:auto;
+      max-height:60vh;
+      object-fit:contain;
+      border-radius:6px;
+    }
+
+    /* Team headshot: centered, contained, no odd crop */
+    .values-strip{text-align:center;}
+    .team-card{display:flex; flex-direction:column; align-items:center;}
+    .team-card img{
+      width:180px;
+      height:180px;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      object-position:top center;
+    }
+    .team-card p{max-width:44ch;}
+
+    .hero h1{max-width:100%;}
+    .hero p.lead{max-width:100%;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#home" class="logo-lockup">
+      <img class="logo-mark" src="loggo.JPG" alt="We Are Foundation logo">
+      <span class="logo">We Are <span>Foundation</span></span>
+    </a>
+    <nav class="main-links">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#stories">Stories</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#quickhelp" class="btn btn-ghost btn-sm">Get Help</a>
+      <a href="#donate" class="btn btn-primary btn-sm">Donate</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#stories">Stories</a>
+    <a href="#donate">Donate / Partner</a>
+    <a href="#contact">Contact</a>
+    <a href="#quickhelp" class="btn btn-ghost">Get Help</a>
+    <a href="#donate" class="btn btn-primary">Donate</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Everyone deserves to be heard. Everyone deserves to be found.</h1>
+      <p class="lead">We Are Foundation works to support people facing mental health challenges, provide shelter and employment opportunities for orphans, and help missing and vulnerable individuals find their way back to safety, dignity, and their families.</p>
+      <div class="hero-ctas">
+        <a href="#quickhelp" class="btn btn-primary">Get Help</a>
+        <a href="#donate" class="btn btn-outline">Support Our Mission</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="Gemini_Generated_Image_or5mttor5mttor5m.png" alt="A family sitting together outdoors, sharing a warm moment of connection.">
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUICK HELP ================= -->
+<section class="quick-help" id="quickhelp">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Need Help?</span>
+      <h2>Support is closer than you think</h2>
+      <p>Whatever brought you here, you don't have to figure it out alone. Choose the option that fits your situation.</p>
+    </div>
+    <div class="help-grid">
+      <div class="help-card">
+        <span class="num">01</span>
+        <h3>Mental Health Support</h3>
+        <p>Find guidance and support for yourself or someone you care about, and a connection to the right professional help.</p>
+        <a href="#contact" class="btn btn-navy btn-sm">Get Mental Health Support</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STORIES ================= -->
+<section id="stories">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Stories</span>
+      <h2>Real people. Real outcomes.</h2>
+      <p>Shared only with informed consent, and with details adjusted to protect the privacy of everyone involved.</p>
+    </div>
+    <div class="stories-grid">
+      <div class="story-card">
+        <div class="story-media"><img src="c1.png" alt="Placeholder story image"></div>
+        <div class="story-body">
+          <span class="story-tag">Reunification</span>
+          <h4>Reunited After 5 Years on the Streets</h4>
+          <p><strong>Situation:</strong> A man lost his memory and home after a severe accident, spending 5 long years living on the streets without support. <strong>Intervention:</strong> Our team provided immediate shelter, food, and care, and launched a social media search campaign to locate his relatives. <strong>Outcome:</strong> The post reached his hometown in Karnataka, helping us successfully trace his family and safely reunite him back home. Shared with consent; identifying details withheld.</p>
+        </div>
+      </div>
+      <div class="story-card">
+        <div class="story-media"><img src="C2.png" alt="Placeholder story image"></div>
+        <div class="story-body">
+          <span class="story-tag">Dignified Last Rites</span>
+          <h4>Dignified Last Rites</h4>
+          <p><strong>Situation:</strong> A father was left waiting at a cremation ground for eight hours with his deceased disabled son, unable to afford the final rites. <strong>Intervention:</strong> Upon learning of his plight, our team arrived at the location to provide immediate emotional and financial support. <strong>Outcome:</strong> We performed the final rites with full respect and dignity, relieving the grieving father of his burden. Shared with consent; identifying details withheld.</p>
+        </div>
+      </div>
+      <div class="story-card">
+        <div class="story-media"><img src="C3.png"></div>
+        <div class="story-body">
+          <span class="story-tag">Child Protection</span>
+          <h4>Rescuing a Child in Danger</h4>
+          <p><strong>Situation:</strong> A child was found in an unsafe environment with parents who were unconscious due to extreme alcohol intoxication. <strong>Intervention:</strong> Working together with Childline, our team intervened immediately to rescue the child from harm. <strong>Outcome:</strong> The child was safely placed in a children's home, ensuring their immediate protection, proper care, and well-being. Shared with consent; identifying details withheld.</p>
+        </div>
+      </div>
+      <div class="story-card">
+        <div class="story-media"><img src="C4.png"></div>
+        <div class="story-body">
+          <span class="story-tag">Empowerment &amp; Employment</span>
+          <h4>Empowering a Visually Impaired Resident</h4>
+          <p><strong>Situation:</strong> In Boyapally village (Mahabubnagar), Mr. Raju, who is visually impaired, was facing financial difficulties and lacked a sustainable livelihood. <strong>Intervention:</strong> Our team provided him with financial assistance and created an employment opportunity tailored to his abilities. <strong>Outcome:</strong> He gained self-reliance, restored his confidence, and is now able to lead an independent and dignified life. Shared with consent; identifying details withheld.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-top">
+      <div class="copy">
+        <span class="eyebrow">Our Story</span>
+        <h2>Why We Are Foundation exists</h2>
+        <p>Our work started in 2018. We saw people on the street suffering with mental health issues—wandering hungry, cold, and drenched in the rain. It broke our hearts, and we knew we could not just look away. What began as a small effort to give food, shelter, and care soon grew into a bigger mission. In 2023, we officially registered as WE ARE FOUNDATION (Charitable Trust) (Reg. No: BK IV-4/2023).</p>
+        <p>Today we work alongside families, volunteers, mental health professionals, and community partners to close that gap — through outreach, coordination, and steady, patient support.</p>
+      </div>
+      <div class="mv-grid">
+        <div class="mv-card">
+          <h4>Mission</h4>
+          <p>To assist NGOs, volunteers, police, and families in locating and reuniting missing persons quickly and safely.</p>
+        </div>
+        <div class="mv-card">
+          <h4>Vision</h4>
+          <p>To create a secure and reliable platform that helps reunite missing, vulnerable persons with their families, and to work toward a beggar-free city through technology and community support.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="values-strip">
+      <span class="eyebrow">Meet Our Team</span>
+      <h2>The people behind the work</h2>
+      <div class="team-card">
+        <img src="founder.jpeg">
+        <h4>Chetamoni Praveen Kumar, BA-LLB</h4>
+        <div class="role">Founder &amp; President</div>
+        <p>[Placeholder bio — background, experience, and role at We Are Foundation.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GET INVOLVED (Donate / Partner) ================= -->
+<section class="involve-section" id="donate">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Get Involved</span>
+      <h2>Donate or partner with us</h2>
+    </div>
+
+    <div class="involve-grid" style="margin-bottom:80px;">
+      <div>
+        <h3>Donate</h3>
+        <p>Your gift funds outreach, coordination, and rehabilitation support for people who need it most. All donations are used transparently.</p>
+        <div class="fund-use">
+          <strong style="font-size:13.5px; color:var(--navy-deep);">How funds are used</strong>
+          <ul>
+            <li>Direct family and beneficiary support</li>
+            <li>Community outreach and awareness programs</li>
+            <li>Volunteer coordination and training</li>
+            <li>Operations and administration</li>
+          </ul>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3 style="margin-bottom:6px;">Bank Transfer Details</h3>
+        <p style="font-size:13.5px; margin-bottom:20px;">You can donate directly using the details below.</p>
+        <div class="bank-details">
+          <div class="bank-row">
+            <span class="label">Account Name</span>
+            <span class="bank-value-wrap"><span class="value" id="v-name">WE ARE FOUNDATION</span><button class="copy-btn" data-copy="v-name">Copy</button></span>
+          </div>
+          <div class="bank-row">
+            <span class="label">Account Number</span>
+            <span class="bank-value-wrap"><span class="value" id="v-acc">42397690623</span><button class="copy-btn" data-copy="v-acc">Copy</button></span>
+          </div>
+          <div class="bank-row">
+            <span class="label">IFSC Code</span>
+            <span class="bank-value-wrap"><span class="value" id="v-ifsc">SBIN0020921</span><button class="copy-btn" data-copy="v-ifsc">Copy</button></span>
+          </div>
+          <div class="bank-row upi-pay-row">
+            <span class="label">Pay via UPI</span>
+            <a class="btn btn-primary upi-pay-btn" href="upi://pay?pa=9989694539@sbi&pn=WE%20ARE%20FOUNDATION&cu=INR">Pay with UPI App</a>
+            <div class="upi-apps">
+              <span class="upi-app-chip"><span class="dot" style="background:#4285F4;"></span>GPay</span>
+              <span class="upi-app-chip"><span class="dot" style="background:#5F259F;"></span>PhonePe</span>
+              <span class="upi-app-chip"><span class="dot" style="background:#00B9F1;"></span>Paytm</span>
+            </div>
+            <p style="font-size:12px; margin:0;">Tap the button on your phone to open the payment directly in your preferred UPI app.</p>
+          </div>
+        </div>
+        <p style="font-size:12px; margin-top:14px;">Please verify these details before making a transfer, and share your transaction reference with us via WhatsApp or email for acknowledgement.</p>
+      </div>
+    </div>
+
+ 
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="quick-help" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow">Contact Us</span>
+      <h2>We're here during working hours</h2>
+      <dl>
+        <dt>Office Address</dt><dd>H.No: 1-14-102/C, Sri Krishna Colony, Kaverammapet Village, Jadcherla Mandal, Mahabubnagar DIST, Telangana State - 509301</dd>
+        <dt>Phone</dt><dd>+91 9989694539</dd>
+        
+      </dl>
+     
+      <div class="urgent-box">
+        <strong>For urgent situations:</strong> contact your local emergency services or police directly. These channels are not monitored for immediate emergencies.
+      </div>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link-item" href="https://wa.me/+919989694539" target="_blank" rel="noopener">
+        <span class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4c-4.35 0-7.9 3.53-7.9 7.86 0 1.39.37 2.74 1.06 3.93L4 20l4.32-1.13a7.93 7.93 0 0 0 3.72.94h.01c4.35 0 7.9-3.53 7.9-7.86 0-2.1-.82-4.07-2.35-5.63Zm-5.55 12.1h-.01a6.58 6.58 0 0 1-3.34-.91l-.24-.14-2.56.67.68-2.48-.16-.25a6.5 6.5 0 0 1-1-3.45c0-3.6 2.95-6.53 6.58-6.53 1.76 0 3.41.68 4.65 1.92a6.47 6.47 0 0 1 1.93 4.62c0 3.6-2.95 6.55-6.53 6.55Zm3.6-4.9c-.2-.1-1.17-.57-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.14-.42.05-.2-.1-.84-.31-1.6-.98a5.98 5.98 0 0 1-1.1-1.37c-.12-.2-.01-.3.09-.4.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.06-.13.03-.24-.02-.34-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33h-.38c-.13 0-.34.05-.52.24-.18.2-.68.66-.68 1.6s.7 1.86.8 1.99c.09.13 1.38 2.11 3.35 2.96.47.2.83.32 1.12.41.47.15.9.13 1.24.08.38-.06 1.17-.48 1.33-.94.16-.46.16-.86.12-.94-.05-.09-.18-.14-.38-.24Z" fill="currentColor"/></svg>
+        </span>
+        <span class="contact-text">
+          <strong>WhatsApp</strong>
+          <span>+91 9989694539</span>
+        </span>
+      </a>
+      <a class="contact-link-item" href="https://instagram.com/we_are_foundation1" target="_blank" rel="noopener">
+        <span class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.1" cy="6.9" r="1" fill="currentColor"/></svg>
+        </span>
+        <span class="contact-text">
+          <strong>Instagram</strong>
+          <span>@we_are_foundation1</span>
+        </span>
+      </a>
+      <a class="contact-link-item" href="mailto:">
+        <span class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M4 6.5 12 13l8-6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="contact-text">
+          <strong>Email</strong>
+          <span>Wearefoundation1@gmail.com</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq-list" id="faqList">
+      <div class="faq-item"><button class="faq-q"><span>How can I seek mental health support?</span><span class="plus">+</span></button><div class="faq-a"><p>Use the "Get Mental Health Support" button above or the contact form to reach our team, who will guide you or connect you with a qualified professional.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>How can I report a missing person?</span><span class="plus">+</span></button><div class="faq-a"><p>Contact us through the "Report / Seek Assistance" option. Please also file a report with local police, as we work alongside — not instead of — authorities.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>Can the NGO help locate a missing person?</span><span class="plus">+</span></button><div class="faq-a"><p>We support families through coordination, outreach, and identification assistance, working alongside relevant authorities. We are not a police or government agency.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>What information is required?</span><span class="plus">+</span></button><div class="faq-a"><p>This depends on your situation. Our team will let you know exactly what's needed once you reach out — we only ask for what's necessary.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>How can I volunteer?</span><span class="plus">+</span></button><div class="faq-a"><p>Fill out the partner form in the Get Involved section with your interests, skills, and availability, and our team will follow up.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>How can I donate?</span><span class="plus">+</span></button><div class="faq-a"><p>Visit the Donate section for our bank transfer details, including account number, IFSC code, and UPI ID.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>How are donations used?</span><span class="plus">+</span></button><div class="faq-a"><p>Donations fund direct support, outreach programs, volunteer coordination, and operations.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>Can organizations partner with We Are Foundation?</span><span class="plus">+</span></button><div class="faq-a"><p>Yes — CSR teams, schools, healthcare providers, and community organizations can reach out through the Partner With Us form.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>How can I contact the organization?</span><span class="plus">+</span></button><div class="faq-a"><p>Use the contact form below, or reach us directly by phone or email during working hours.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">We Are Foundation</div>
+        <p>Supporting mental health and helping missing and vulnerable people find their way home, with dignity and care.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="LinkedIn">IN</a>
+          <a href="#" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#stories">Stories</a></li>
+          <li><a href="#donate">Donate</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> We Are Foundation. All rights reserved.</span>
+      <div class="legal-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Disclaimer</a></div>
+    </div>
+    <div class="ngo-info">
+      Registration number, legal entity information, and tax-exemption status: <em>[placeholder — pending verification]</em>. Official contact details: <em>[placeholder]</em>.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobilePanel = document.getElementById('mobilePanel');
+  hamburgerBtn.addEventListener('click', () => {
+    const open = mobilePanel.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', open);
+  });
+  mobilePanel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobilePanel.classList.remove('open');
+  }));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(other => {
+        other.classList.remove('open');
+        other.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Copy-to-clipboard for bank details
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-copy');
+      const text = document.getElementById(targetId).textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Copied';
+        setTimeout(() => { btn.textContent = original; }, 1500);
+      });
+    });
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
